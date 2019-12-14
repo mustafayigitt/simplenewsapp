@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_general">
+
+    <fragment
+        android:id="@+id/nav_general"
+        android:name="com.example.haberler.ui.general.GeneralFragment"
+        android:label="@string/menu_general"
+        tools:layout="@layout/fragment_general" />
+
+    <fragment
+        android:id="@+id/nav_economy"
+        android:name="com.example.haberler.ui.economy.EconomyFragment"
+        android:label="@string/menu_economy"
+        tools:layout="@layout/fragment_econmy" />
+
+    <fragment
+        android:id="@+id/nav_technology"
+        android:name="com.example.haberler.ui.technology.TechnologyFragment"
+        android:label="@string/menu_technology"
+        tools:layout="@layout/fragment_technology" />
+
+    <fragment
+        android:id="@+id/nav_sport"
+        android:name="com.example.haberler.ui.sport.SportFragment"
+        android:label="@string/menu_sport"
+        tools:layout="@layout/fragment_sport" />
+
+</navigation>

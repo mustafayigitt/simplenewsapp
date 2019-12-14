@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Haberler</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Haberler Cebimde</string>
+    <string name="nav_header_subtitle">Spordan Teknolojiye</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_general">Genel</string>
+    <string name="menu_economy">Ekonomi</string>
+    <string name="menu_technology">Teknoloji</string>
+    <string name="menu_sport">Spor</string>
+
+</resources>
