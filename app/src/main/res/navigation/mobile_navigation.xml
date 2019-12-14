@@ -15,7 +15,7 @@
         android:id="@+id/nav_economy"
         android:name="com.example.haberler.ui.economy.EconomyFragment"
         android:label="@string/menu_economy"
-        tools:layout="@layout/fragment_econmy" />
+        tools:layout="@layout/fragment_economy" />
 
     <fragment
         android:id="@+id/nav_technology"
