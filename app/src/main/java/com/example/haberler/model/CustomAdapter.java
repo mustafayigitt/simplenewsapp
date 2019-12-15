@@ -15,6 +15,7 @@ import com.example.haberler.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomHolder> {
 
@@ -27,7 +28,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomHold
         this.modelNews = modelNews;
         this.mContext = context;
     }
-
 
     @NonNull
     @Override
@@ -60,6 +60,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomHold
         }
 
         return a;
+    }
+
+    public void updateData(ArrayList<ModelNew> modelNews){
+        this.modelNews = modelNews;
+        notifyDataSetChanged();
     }
 
     class CustomHolder extends RecyclerView.ViewHolder {

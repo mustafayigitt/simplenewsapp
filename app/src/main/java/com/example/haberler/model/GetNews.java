@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.haberler.IPrepareRecyler;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -24,14 +26,13 @@ public class GetNews extends AsyncTask<String, Void, String> {
     InputStreamReader reader;
 
     ArrayList<ModelNew> news;
+    IPrepareRecyler iPrepareRecyler;
 
-    RecyclerView recyclerView;
     String targetCategory;
     Context context;
 
-    public GetNews(Context context,RecyclerView recyclerView, String targetCategory) {
-        this.context = context;
-        this.recyclerView = recyclerView;
+    public GetNews(IPrepareRecyler iPrepareRecyler,String targetCategory) {
+        this.iPrepareRecyler = iPrepareRecyler;
         this.targetCategory = targetCategory;
     }
 
@@ -83,12 +84,8 @@ public class GetNews extends AsyncTask<String, Void, String> {
 
                 news.add(new ModelNew(content,header,image));
             }
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-            recyclerView.setLayoutManager(linearLayoutManager);
 
-            recyclerView.setAdapter(new CustomAdapter(context,news));
-
+            iPrepareRecyler.prepareRecycler(news);
 
         } catch (Exception e){
             e.printStackTrace();
