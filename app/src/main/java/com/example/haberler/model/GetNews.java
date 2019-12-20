@@ -44,7 +44,7 @@ public class GetNews extends AsyncTask<String, Void, String> {
             result = "";
             url = new URL("https://api.collectapi.com/news/getNews?tag="+targetCategory+"&country=tr");
             httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.addRequestProperty("Authorization","apikey 0UwCt4uCj8hQqA5qx4QVH3:0a33TIyKSo1DZyYR1skYlQ");
+            httpURLConnection.addRequestProperty("Authorization","YOUR APIKEY");
             stream = httpURLConnection.getInputStream();
             reader = new InputStreamReader(stream);
 
