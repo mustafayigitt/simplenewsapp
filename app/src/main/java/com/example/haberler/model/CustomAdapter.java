@@ -1,10 +1,15 @@
 package com.example.haberler.model;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,25 +77,40 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomHold
         private TextView headerTxt;
         private TextView contentTxt;
         private ImageView imageView;
+        private TextView sourceUrlTxt;
 
-        public CustomHolder(@NonNull View itemView) {
+        public CustomHolder(@NonNull final View itemView) {
             super(itemView);
 
             headerTxt = itemView.findViewById(R.id.textView1);
             contentTxt = itemView.findViewById(R.id.textView2);
             imageView = itemView.findViewById(R.id.imageView);
+            sourceUrlTxt = itemView.findViewById(R.id.textView3);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sourceUrlTxt.getText().toString()));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         public void setData(ModelNew selectedModelNew, int position){
             String header = selectedModelNew.getHeader();
             String content = selectedModelNew.getContent();
             String imageUrl = selectedModelNew.getImage();
+            String sourceUrl = selectedModelNew.getSourceUrl();
 
             headerTxt.setText(header);
             contentTxt.setText(content);
+            sourceUrlTxt.setText(sourceUrl);
             if (!imageUrl.isEmpty()) {
                 Picasso.get().load(imageUrl).into(imageView);
             }
         }
+
     }
 }

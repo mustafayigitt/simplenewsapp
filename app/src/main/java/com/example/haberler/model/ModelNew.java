@@ -5,11 +5,13 @@ public class ModelNew {
     private String content;
     private String header;
     private String image;
+    private String sourceUrl;
 
-    public ModelNew(String content, String header, String image) {
+    public ModelNew(String content, String header, String image, String sourceUrl) {
         this.content = content;
         this.header = header;
         this.image = image;
+        this.sourceUrl = sourceUrl;
     }
 
     public String getImage() {
@@ -34,6 +36,14 @@ public class ModelNew {
 
     public void setHeader(String header) {
         this.header = header;
+    }
+
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
     }
 
 }

@@ -44,7 +44,7 @@ public class GetNews extends AsyncTask<String, Void, String> {
             result = "";
             url = new URL("https://api.collectapi.com/news/getNews?tag="+targetCategory+"&country=tr");
             httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.addRequestProperty("Authorization","YOUR APIKEY");
+            httpURLConnection.addRequestProperty("Authorization","apikey 2yi1bvQRNTOVmRRcifxwMV:2y75EeTnHjfmGgt4sQuS13");
             stream = httpURLConnection.getInputStream();
             reader = new InputStreamReader(stream);
 
@@ -55,10 +55,12 @@ public class GetNews extends AsyncTask<String, Void, String> {
                 data = reader.read();
             }
 
+            httpURLConnection.disconnect();
             return result;
 
         } catch (Exception e) {
             e.printStackTrace();
+            httpURLConnection.disconnect();
             return null;
         }
     }
@@ -79,10 +81,11 @@ public class GetNews extends AsyncTask<String, Void, String> {
                 String header = obj.getString("name");
                 String content = obj.getString("description");
                 String image = obj.getString("image");
+                String sourceUrl = obj.getString("url");
                 System.out.println("Header: " + header + " Content: " + content + "URL: " + image);
                 System.out.println();
 
-                news.add(new ModelNew(content,header,image));
+                news.add(new ModelNew(content,header,image,sourceUrl));
             }
 
             iPrepareRecyler.prepareRecycler(news);
